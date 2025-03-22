@@ -1,0 +1,156 @@
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--bg-color);
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+    min-height: 60px;
+    z-index: 1000;
+}
+
+/* Fix nav-container class */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px 0 10px;
+}
+
+/* Logo */
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 25%;
+}
+
+/* Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: 0.25s ease;
+}
+
+/* Navigation Links */
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Actions (Search & Theme Toggle) */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Fix Search Bar Alignment */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #705f5f;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background: var(--search-bg);
+    color: var(--text-color);
+    width: 200px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0.3rem;
+    flex: 1;
+}
+.search-bar input::placeholder {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.search-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 50px;
+    color: var(--text-color);
+}
+
+/* Light Mode */
+:root {
+    --bg-color: #b3fcb9;
+    --text-color: #312e2e;
+    --search-bg: #c1e7ff;
+}
+
+/* Dark Mode */
+.dark {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --search-bg: #444;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        padding: 1rem;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+}
