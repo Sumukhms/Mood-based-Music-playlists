@@ -1,0 +1,228 @@
+/* Base Styles */
+:root {
+    --primary: #6c5ce7;
+    --primary-dark: #5649c0;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --bg: #ffffff;
+    --bg-dark: #1e272e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+  
+  .dark {
+    --text: #f5f6fa;
+    --text-light: #dcdde1;
+    --bg: #1e272e;
+    --bg-dark: #0a0e12;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Navbar Container */
+  .navbar {
+    background-color: var(--bg);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+  
+  .nav-logo:hover {
+    color: var(--primary-dark);
+  }
+  
+  .logo-img {
+    height: 2rem;
+    width: auto;
+  }
+  
+  /* Left-aligned navigation (desktop) */
+  .nav-left {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-right: auto;
+  }
+  
+  /* Right-aligned actions (desktop) */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 0.5rem 1rem;
+    padding-right: 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: var(--text);
+    transition: var(--transition);
+    outline: none;
+    width: 180px;
+  }
+  
+  .search-input::placeholder {
+    color: var(--text-light);
+    opacity: 1; /* Fix for Firefox */
+  }
+  
+  .search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+    width: 220px; /* Expands on focus */
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .search-icon:hover {
+    color: var(--primary);
+  }
+  
+  /* Theme Toggle */
+  .theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .theme-toggle:hover {
+    color: var(--primary);
+    background-color: rgba(108, 92, 231, 0.1);
+  }
+  
+  /* Mobile Menu Toggle */
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    color: var(--text);
+    transition: var(--transition);
+    z-index: 1001;
+  }
+  
+  .menu-icon:hover {
+    color: var(--primary);
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    z-index: 999;
+  }
+  
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .mobile-menu .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+  }
+  
+  /* Nav Items (Shared) */
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    display: block;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary);
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .nav-left {
+      display: none;
+    }
+  
+    .nav-right {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    .search-input {
+      width: 100%;
+    }
+  }
